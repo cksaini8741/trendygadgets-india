@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TrendyGadgets India - Premium quality products at best prices. Fast delivery, COD available.">
+    <title>TrendyGadgets India - Premium Products at Best Prices</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .highlight {
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff4757;
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(255,71,87,0.4);
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,71,87,0.6);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Flash Sale */
+        .flash-sale {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff4757 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+
+        .flash-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .flash-content p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        /* Products Section */
+        .products {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: #2d3436;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #636e72;
+            margin-bottom: 3rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ff4757;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            z-index: 10;
+            box-shadow: 0 3px 10px rgba(255,71,87,0.4);
+        }
+
+        .product-badge.trending {
+            background: #ffa502;
+        }
+
+        .product-badge.new {
+            background: #2ed573;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            background: #f1f2f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.15);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #2d3436;
+        }
+
+        .product-desc {
+            color: #636e72;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-features {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .product-features span {
+            background: #f1f2f6;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #2d3436;
+            font-weight: 500;
+        }
+
+        .product-rating {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .product-rating span {
+            color: #636e72;
+            font-size: 0.85rem;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            color: #95a5a6;
+            font-size: 1.1rem;
+        }
+
+        .price-new {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #2d3436;
+        }
+
+        .discount {
+            background: #2ed573;
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .buy-button {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1.2rem;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102,126,234,0.3);
+        }
+
+        .buy-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102,126,234,0.5);
+        }
+
+        .stock-info {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #ff4757;
+            font-weight: 600;
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            background: #f8f9fa;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #2d3436;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: #636e72;
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+        }
+
+        .stars {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card p {
+            color: #636e72;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .customer strong {
+            color: #2d3436;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .customer span {
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2d3436;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3, .footer-col h4 {
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #b2bec3;
+            margin-bottom: 0.7rem;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            background: rgba(255,255,255,0.1);
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #b2bec3;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Loading Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        body {
+            animation: fadeIn 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    🛍️ TrendyGadgets India
+                </div>
+                <nav class="nav">
+                    <a href="#home">Home</a>
+                    <a href="#products">Products</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2 class="hero-title">Trending Products at <span class="highlight">Best Prices</span></h2>
+            <p class="hero-subtitle">Premium Quality | Fast Delivery | Cash on Delivery Available</p>
+            <div class="hero-badges">
+                <span class="badge">✅ 100% Genuine</span>
+                <span class="badge">🚚 Free Shipping</span>
+                <span class="badge">💯 Quality Guaranteed</span>
+            </div>
+            <a href="#products" class="cta-button">Shop Now 🔥</a>
+        </div>
+    </section>
+
+    <!-- Flash Sale Banner -->
+    <section class="flash-sale">
+        <div class="container">
+            <div class="flash-content">
+                <h3>⚡ FLASH SALE - Limited Time Only!</h3>
+                <p>First 10 buyers get FREE SHIPPING + Extra 10% OFF</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">🔥 Trending Products</h2>
+            <p class="section-subtitle">Limited Stock - Order Now!</p>
+            
+            <div class="products-grid">
+                <!-- Product 1: USB Cable -->
+                <div class="product-card">
+                    <div class="product-badge">BEST SELLER</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&h=400&fit=crop" alt="3-in-1 USB Cable">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">3-in-1 Fast Charging Cable</h3>
+                        <p class="product-desc">Universal iPhone, Android & Type-C</p>
+                        <div class="product-features">
+                            <span>⚡ 120W Fast Charge</span>
+                            <span>🔌 3-in-1 Design</span>
+                        </div>
+                        <div class="product-rating">
+                            ⭐⭐⭐⭐⭐ <span>(4.8/5 - 2000+ reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-old">₹500</span>
+                            <span class="price-new">₹250</span>
+                            <span class="discount">50% OFF</span>
+                        </div>
+                        <button class="buy-button" onclick="orderProduct('3-in-1 Fast Charging Cable', '₹250')">Buy Now 🛒</button>
+                        <p class="stock-info">⚠️ Only 5 left in stock!</p>
+                    </div>
+                </div>
+
+                <!-- Product 2: Pimple Patches -->
+                <div class="product-card">
+                    <div class="product-badge trending">TRENDING</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&h=400&fit=crop" alt="Pimple Patches">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Hydrocolloid Acne Pimple Patches</h3>
+                        <p class="product-desc">144pcs - Clear Skin Fast</p>
+                        <div class="product-features">
+                            <span>✨ Invisible</span>
+                            <span>🩹 Fast Healing</span>
+                        </div>
+                        <div class="product-rating">
+                            ⭐⭐⭐⭐⭐ <span>(4.6/5 - 10000+ reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-old">₹350</span>
+                            <span class="price-new">₹180</span>
+                            <span class="discount">48% OFF</span>
+                        </div>
+                        <button class="buy-button" onclick="orderProduct('Hydrocolloid Acne Pimple Patches 144pcs', '₹180')">Buy Now 🛒</button>
+                        <p class="stock-info">🔥 Selling Fast - 8 left!</p>
+                    </div>
+                </div>
+
+                <!-- Product 3: Phone Ring -->
+                <div class="product-card">
+                    <div class="product-badge new">NEW ARRIVAL</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&h=400&fit=crop" alt="Phone Ring Holder">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Magnetic Phone Ring Holder</h3>
+                        <p class="product-desc">360° Rotation - Premium Quality</p>
+                        <div class="product-features">
+                            <span>🧲 Strong Grip</span>
+                            <span>💍 Universal</span>
+                        </div>
+                        <div class="product-rating">
+                            ⭐⭐⭐⭐⭐ <span>(4.7/5 - 980+ reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-old">₹600</span>
+                            <span class="price-new">₹350</span>
+                            <span class="discount">42% OFF</span>
+                        </div>
+                        <button class="buy-button" onclick="orderProduct('Magnetic Phone Ring Holder', '₹350')">Buy Now 🛒</button>
+                        <p class="stock-info">✅ In Stock - Limited Quantity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="about">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Fast Delivery</h3>
+                    <p>7-15 days delivery with tracking</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Cash on Delivery</h3>
+                    <p>Pay when you receive</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💯</div>
+                    <h3>Quality Guaranteed</h3>
+                    <p>100% genuine products</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Payment</h3>
+                    <p>Safe & encrypted transactions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Amazing quality! The charging cable works perfectly with all my devices. Fast delivery too!"</p>
+                    <div class="customer">
+                        <strong>Rahul Sharma</strong>
+                        <span>Mumbai</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Pimple patches are a game changer! Cleared my acne overnight. Highly recommend!"</p>
+                    <div class="customer">
+                        <strong>Priya Singh</strong>
+                        <span>Delhi</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Phone ring holder is super strong and looks premium. Worth every rupee!"</p>
+                    <div class="customer">
+                        <strong>Amit Patel</strong>
+                        <span>Bangalore</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Shop?</h2>
+            <p>Join 10,000+ happy customers across India</p>
+            <a href="#products" class="cta-button">Start Shopping Now 🛍️</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>TrendyGadgets India</h3>
+                    <p>Your trusted source for trending products at the best prices.</p>
+                    <div class="social-links">
+                        <a href="#">📘 Facebook</a>
+                        <a href="#">📸 Instagram</a>
+                        <a href="#">🐦 Twitter</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="#products">Products</a>
+                    <a href="#about">About Us</a>
+                    <a href="#">Shipping Policy</a>
+                    <a href="#">Refund Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p>📧 Email: cksaini8741@gmail.com</p>
+                    <p>📱 WhatsApp: +91 XXXXXXXXXX</p>
+                    <p>⏰ Mon-Sat: 9AM - 8PM</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Payment Methods</h4>
+                    <p>💳 Credit/Debit Cards</p>
+                    <p>📱 UPI</p>
+                    <p>💰 Cash on Delivery</p>
+                    <p>💵 PayPal</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TrendyGadgets India. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // WhatsApp Order Function
+        function orderProduct(productName, price) {
+            const message = `Hi! I want to order: ${productName} for ${price}`;
+            const whatsappNumber = '91XXXXXXXXXX'; // UPDATE THIS WITH YOUR WHATSAPP NUMBER
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            
+            window.open(whatsappUrl, '_blank');
+            
+            alert('🎉 Redirecting to WhatsApp...');
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header Shadow on Scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 25px rgba(0,0,0,0.3)';
+            } else {
+                header.style.boxShadow = '0 2px 15px rgba(0,0,0,0.2)';
+            }
+        });
+
+        console.log('🚀 TrendyGadgets India - Website Loaded Successfully!');
+        console.log('💡 Remember to update WhatsApp number in the code!');
+    </script>
+</body>
+</html>
